@@ -46,13 +46,13 @@ export default function Home() {
         <nav className="max-w-7xl mx-auto px-6 h-full">
           <div className="flex items-center h-full">
             {/* Logo */}
-            <div className="flex items-center space-x-3 mr-12">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+            <div className="flex items-center space-x-2 mr-8">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-white">
                 {/* Linear-inspired logo with geometric precision */}
                 <g>
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="url(#dhristiLogo)" />
-                  <path d="M8 12l3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="17" cy="7" r="1" fill="white" opacity="0.8" />
+                  <rect x="2" y="2" width="16" height="16" rx="3" fill="url(#dhristiLogo)" />
+                  <path d="M6 10l3 3 5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="14" cy="6" r="1" fill="white" opacity="0.8" />
                 </g>
                 <defs>
                   <linearGradient id="dhristiLogo" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -61,21 +61,20 @@ export default function Home() {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-base font-semibold text-white">DhristiAI</span>
+              <span className="text-sm font-medium text-white">DhristiAI</span>
             </div>
             
             {/* Center Navigation */}
-            <div className="hidden md:flex items-center space-x-8 flex-1">
+            <div className="hidden md:flex items-center space-x-6 flex-1">
               {/* Product Dropdown */}
               <div className="relative">
                 <button 
                   onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
                   onMouseEnter={() => setIsProductDropdownOpen(true)}
-                  className="nav-link flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
                 >
                   <span>Product</span>
                   <ChevronDown className="w-3 h-3" />
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
                 </button>
                 
                 {isProductDropdownOpen && (
@@ -175,11 +174,10 @@ export default function Home() {
                 <button 
                   onClick={() => setIsResourcesDropdownOpen(!isResourcesDropdownOpen)}
                   onMouseEnter={() => setIsResourcesDropdownOpen(true)}
-                  className="nav-link flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
                 >
                   <span>Resources</span>
                   <ChevronDown className="w-3 h-3" />
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
                 </button>
                 
                 {isResourcesDropdownOpen && (
@@ -260,40 +258,36 @@ export default function Home() {
               </div>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="nav-link text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Pricing
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="nav-link text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Customers
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
               </button>
               <button 
                 onClick={() => scrollToSection('demo')}
-                className="nav-link text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Blog
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="nav-link text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 relative group"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Contact
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-gradient group-hover:w-full transition-all duration-200"></div>
               </button>
             </div>
             
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3 ml-auto">
-              <button className="button-secondary text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 px-3 rounded-md hover:bg-linear-card">
+              <button className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2 px-3 rounded-md hover:bg-linear-card">
                 Log in
               </button>
-              <button className="button-primary bg-white text-black hover:bg-gray-100 transition-colors font-medium text-sm px-4 py-2 rounded-md">
+              <button className="bg-white text-black hover:bg-gray-100 transition-colors font-normal text-sm px-4 py-2 rounded-md">
                 Sign up
               </button>
               

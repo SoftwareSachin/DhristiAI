@@ -43,13 +43,13 @@ export default function Home() {
       <header className={`sticky top-0 z-50 h-16 border-b border-linear transition-all duration-300 ${
         scrollY > 50 ? 'backdrop-blur-custom bg-linear-bg/95' : 'bg-linear-bg'
       }`}>
-        <nav className="max-w-7xl mx-auto px-8 h-full">
-          <div className="flex items-center justify-between h-full">
+        <nav className="max-w-7xl mx-auto px-6 h-full">
+          <div className="flex items-center h-full">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-white">
-                <circle cx="16" cy="16" r="16" fill="url(#saffron-gradient)" />
-                <path d="M10 16l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <div className="flex items-center space-x-2 mr-12">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                <path d="M2 2h20v20H2V2z" fill="url(#saffron-gradient)" />
+                <path d="M6 12l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <defs>
                   <linearGradient id="saffron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FF6B35" />
@@ -57,11 +57,11 @@ export default function Home() {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-lg font-semibold">DhristiAI</span>
+              <span className="text-base font-semibold">DhristiAI</span>
             </div>
             
             {/* Center Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-8 flex-1">
               {/* Product Dropdown */}
               <div className="relative">
                 <button 
@@ -285,7 +285,7 @@ export default function Home() {
             </div>
             
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 ml-auto">
               <button className="button-secondary text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 px-3 rounded-md hover:bg-linear-card">
                 Log in
               </button>

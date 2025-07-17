@@ -1,0 +1,91 @@
+## DhristiAI Navigation Design (1:1 Linear.app Replica)
+
+### Global Header
+
+* **Position & Size**: Sticky at top, full width, height 64px.
+* **Background**: `surface-100` in light mode / `surface-300` in dark mode.
+* **Border**: Bottom border `1px solid var(--surface-400)`.
+* **Logo**: Left-aligned; 32px padding; uses saffron–gold gradient sphere SVG (32×32px).
+* **Primary Links**:
+
+  * Display: horizontal list, space between links: 24px.
+  * Typography: `font-size-sm`, `font-weight-medium`; color `var(--text-default)`; hover color `var(--color-brand)`.
+  * Hover Animation: Underline slides in from left over 200ms.
+* **CTAs**:
+
+  * Right-aligned; `.button-primary` and `.button-secondary`; horizontal gap 16px.
+* **User Menu**:
+
+  * Avatar circle: 32×32px; on-click opens dropdown with Profile, Settings, Logout.
+  * Dropdown uses `shadow-medium` for depth.
+* **Mobile Toggle**:
+
+  * Visible at <768px; hamburger icon button with `aria-label="Open menu"`.
+
+```html
+<header class="sticky top-0 flex items-center justify-between px-6 bg-surface-100 border-b">
+  <img src="/logo.svg" alt="DhristiAI logo" width="32" height="32" />
+  <nav class="hidden md:flex space-x-6">
+    <a href="/dashboard" class="nav-link">Dashboard</a>
+    <a href="/analytics" class="nav-link">Analytics</a>
+    <a href="/projects" class="nav-link">Projects</a>
+  </nav>
+  <div class="flex items-center space-x-4">
+    <button class="button-secondary">Login</button>
+    <button class="button-primary">Sign Up</button>
+    <div class="relative">
+      <img src="/avatar.png" class="w-8 h-8 rounded-full" alt="User" />
+      <!-- Dropdown content -->
+    </div>
+    <button class="md:hidden" aria-label="Open menu">
+      <svg><!-- hamburger icon --></svg>
+    </button>
+  </div>
+</header>
+```
+
+### Sidebar Navigation
+
+* **Width**: 64px (collapsed to 48px icons-only on hover).
+* **Background**: `surface-200`.
+* **Layout**: Vertical, center-aligned, padding-top/bottom: 24px.
+* **Items**:
+
+  * Each button: 48×48px touch area.
+  * Icon states: Active `var(--icon-active)`, Idle `var(--text-muted)`.
+* **Tooltips**:
+
+  * Appear on hover after 150ms; background `surface-400`, text white.
+* **Collapse Toggle**:
+
+  * Positioned at bottom; toggles collapse/expand with 200ms animation.
+
+```html
+<aside class="fixed top-0 left-0 h-full w-16 bg-surface-200 flex flex-col items-center py-6">
+  <button class="nav-icon active"><svg><!-- dashboard icon --></svg></button>
+  <button class="nav-icon"><svg><!-- analytics icon --></svg></button>
+  <button class="nav-icon"><svg><!-- settings icon --></svg></button>
+  <button class="mt-auto nav-icon collapse-toggle"><svg><!-- collapse icon --></svg></button>
+</aside>
+```
+
+### Mobile Navigation Overlay
+
+* **Trigger**: Hamburger in header.
+* **Overlay**: Full-screen, background `rgba(0,0,0,0.8)`.
+* **Items**: Centered vertically, list of nav links, spacing 32px.
+* **Gestures**: Swipe right opens, swipe left closes.
+* **Accessibility**: Focus trap inside overlay; ESC closes; `aria-label` on close button.
+
+```html
+<div class="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center">
+  <a href="/dashboard" class="text-xl mb-8">Dashboard</a>
+  <a href="/analytics" class="text-xl mb-8">Analytics</a>
+  <a href="/projects" class="text-xl">Projects</a>
+  <button aria-label="Close menu" class="absolute top-6 right-6">
+    <svg><!-- close icon --></svg>
+  </button>
+</div>
+```
+
+*This standalone document outlines a pixel-precise navigation system, cloned from Linear.app and adapted for DhristiAI.*

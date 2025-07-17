@@ -44,9 +44,16 @@ export default function Home() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 rounded-sm bg-saffron-gradient flex items-center justify-center">
-                <span className="text-white text-xs font-bold">D</span>
-              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                <path d="M3 3h18v18H3V3z" fill="url(#saffron-gradient)" />
+                <path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <defs>
+                  <linearGradient id="saffron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FF6B35" />
+                    <stop offset="100%" stopColor="#F7931E" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <span className="text-lg font-semibold">DhristiAI</span>
             </div>
             
@@ -54,37 +61,37 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('features')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Product
               </button>
               <button 
                 onClick={() => scrollToSection('solutions')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Resources
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Customers
               </button>
               <button 
                 onClick={() => scrollToSection('demo')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Blog
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
               >
                 Contact
               </button>
@@ -92,17 +99,12 @@ export default function Home() {
             
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3">
-              <Button 
-                variant="ghost" 
-                className="hidden md:block text-sm text-linear-secondary hover:text-linear-text hover:bg-transparent font-medium px-3 py-2"
-              >
+              <button className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 px-3 rounded-md hover:bg-linear-card">
                 Log in
-              </Button>
-              <Button 
-                className="bg-white text-black hover:bg-gray-100 transition-colors font-medium text-sm px-4 py-2 rounded-md"
-              >
+              </button>
+              <button className="bg-white text-black hover:bg-gray-100 transition-colors font-medium text-sm px-4 py-2 rounded-md">
                 Sign up
-              </Button>
+              </button>
             </div>
           </div>
         </nav>

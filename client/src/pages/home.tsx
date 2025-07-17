@@ -43,11 +43,11 @@ export default function Home() {
       <header className={`sticky top-0 z-50 border-b border-linear transition-all duration-300 ${
         scrollY > 50 ? 'backdrop-blur-custom bg-linear-bg/95' : 'bg-linear-bg'
       }`}>
-        <nav className="max-w-7xl mx-auto px-6 py-3">
+        <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
                 <path d="M3 3h18v18H3V3z" fill="url(#saffron-gradient)" />
                 <path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <defs>
@@ -57,20 +57,20 @@ export default function Home() {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-lg font-semibold">DhristiAI</span>
+              <span className="text-base font-semibold">DhristiAI</span>
             </div>
             
             {/* Center Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               {/* Product Dropdown */}
               <div className="relative">
                 <button 
                   onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
                   onMouseEnter={() => setIsProductDropdownOpen(true)}
-                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
                 >
                   <span>Product</span>
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3" />
                 </button>
                 
                 {isProductDropdownOpen && (
@@ -170,10 +170,10 @@ export default function Home() {
                 <button 
                   onClick={() => setIsResourcesDropdownOpen(!isResourcesDropdownOpen)}
                   onMouseEnter={() => setIsResourcesDropdownOpen(true)}
-                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
                 >
                   <span>Resources</span>
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3 h-3" />
                 </button>
                 
                 {isResourcesDropdownOpen && (
@@ -254,25 +254,25 @@ export default function Home() {
               </div>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Customers
               </button>
               <button 
                 onClick={() => scrollToSection('demo')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Blog
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
               >
                 Contact
               </button>
@@ -280,10 +280,10 @@ export default function Home() {
             
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3">
-              <button className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2 px-3 rounded-md hover:bg-linear-card">
+              <button className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2 px-3 rounded-md hover:bg-linear-card">
                 Log in
               </button>
-              <button className="bg-white text-black hover:bg-gray-100 transition-colors font-medium text-sm px-4 py-2 rounded-md">
+              <button className="bg-white text-black hover:bg-gray-100 transition-colors font-normal text-sm px-4 py-2 rounded-md">
                 Sign up
               </button>
             </div>

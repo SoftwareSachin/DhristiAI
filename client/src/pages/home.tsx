@@ -46,18 +46,22 @@ export default function Home() {
         <nav className="max-w-7xl mx-auto px-6 h-full">
           <div className="flex items-center h-full">
             {/* Logo */}
-            <div className="flex items-center space-x-2 mr-12">
+            <div className="flex items-center space-x-3 mr-12">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                <path d="M2 2h20v20H2V2z" fill="url(#saffron-gradient)" />
-                <path d="M6 12l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Linear-style minimalist logo */}
+                <g>
+                  <rect x="1" y="1" width="22" height="22" rx="4" fill="url(#dhristiLogo)" />
+                  <path d="M6 12l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="18" cy="6" r="1.5" fill="white" opacity="0.8" />
+                </g>
                 <defs>
-                  <linearGradient id="saffron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FF6B35" />
-                    <stop offset="100%" stopColor="#F7931E" />
+                  <linearGradient id="dhristiLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#5E6AD2" />
+                    <stop offset="100%" stopColor="#4C5FD5" />
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-base font-semibold">DhristiAI</span>
+              <span className="text-base font-semibold text-white tracking-tight">DhristiAI</span>
             </div>
             
             {/* Center Navigation */}

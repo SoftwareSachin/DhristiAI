@@ -48,11 +48,11 @@ export default function Home() {
             {/* Logo */}
             <div className="flex items-center space-x-3 mr-12">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                {/* Linear-style minimalist logo */}
+                {/* Linear-inspired logo with geometric precision */}
                 <g>
-                  <rect x="1" y="1" width="22" height="22" rx="4" fill="url(#dhristiLogo)" />
-                  <path d="M6 12l4 4 8-8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="18" cy="6" r="1.5" fill="white" opacity="0.8" />
+                  <rect x="3" y="3" width="18" height="18" rx="4" fill="url(#dhristiLogo)" />
+                  <path d="M8 12l3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="17" cy="7" r="1" fill="white" opacity="0.8" />
                 </g>
                 <defs>
                   <linearGradient id="dhristiLogo" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -61,7 +61,7 @@ export default function Home() {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-base font-semibold text-white tracking-tight">DhristiAI</span>
+              <span className="text-base font-semibold text-white">DhristiAI</span>
             </div>
             
             {/* Center Navigation */}

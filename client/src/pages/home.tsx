@@ -33,7 +33,14 @@ export default function Home() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 64; // Height of the navigation bar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -71,15 +78,15 @@ export default function Home() {
                 <button 
                   onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
                   onMouseEnter={() => setIsProductDropdownOpen(true)}
-                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
                 >
                   <span>Product</span>
-                  <ChevronDown className="w-3 h-3" />
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isProductDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isProductDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50"
+                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50 animate-slide-down"
                     onMouseLeave={() => setIsProductDropdownOpen(false)}
                   >
                     <div className="p-6">
@@ -174,15 +181,15 @@ export default function Home() {
                 <button 
                   onClick={() => setIsResourcesDropdownOpen(!isResourcesDropdownOpen)}
                   onMouseEnter={() => setIsResourcesDropdownOpen(true)}
-                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
                 >
                   <span>Resources</span>
-                  <ChevronDown className="w-3 h-3" />
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isResourcesDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isResourcesDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50"
+                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50 animate-slide-down"
                     onMouseLeave={() => setIsResourcesDropdownOpen(false)}
                   >
                     <div className="p-6">
@@ -258,25 +265,25 @@ export default function Home() {
               </div>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
               >
                 Customers
               </button>
               <button 
                 onClick={() => scrollToSection('demo')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
               >
                 Blog
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2"
+                className="text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 hover:scale-105"
               >
                 Contact
               </button>
@@ -284,10 +291,10 @@ export default function Home() {
             
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3 ml-auto">
-              <button className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-normal py-2 px-3 rounded-md hover:bg-linear-card">
+              <button className="text-sm text-linear-secondary hover:text-linear-text transition-all duration-200 font-normal py-2 px-3 rounded-md hover:bg-linear-card hover:scale-105">
                 Log in
               </button>
-              <button className="bg-white text-black hover:bg-gray-100 transition-colors font-normal text-sm px-4 py-2 rounded-md">
+              <button className="bg-white text-black hover:bg-gray-100 transition-all duration-200 font-normal text-sm px-4 py-2 rounded-md hover:scale-105 hover:shadow-lg">
                 Sign up
               </button>
               
@@ -311,45 +318,49 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 py-16 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-card border border-linear rounded-full mb-8">
-            <div className="w-2 h-2 bg-saffron-gradient rounded-full"></div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-card border border-linear rounded-full mb-8 animate-fade-in hover-lift">
+            <div className="w-2 h-2 bg-saffron-gradient rounded-full animate-bounce-subtle"></div>
             <span className="text-sm text-linear-text">Introducing DhristiAI for India</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in" style={{"--delay": "0.1s"} as any}>
             DhristiAI is a purpose-built tool for India's{' '}
             <span className="text-saffron-gradient">
               development challenges
             </span>
           </h1>
           
-          <p className="text-xl text-linear-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-linear-secondary mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{"--delay": "0.2s"} as any}>
             Meet the system for modern India development. Streamline governance, healthcare, education, and rural initiatives.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button className="bg-saffron-gradient text-white hover:opacity-90 transition-opacity font-medium px-8 py-3">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in" style={{"--delay": "0.3s"} as any}>
+            <Button className="bg-saffron-gradient text-white hover:opacity-90 transition-all duration-200 font-medium px-8 py-3 hover:scale-105 hover:shadow-lg">
               Start building
             </Button>
           </div>
           
           {/* Team avatars */}
-          <div className="flex justify-center items-center gap-2 mb-4">
+          <div className="flex justify-center items-center gap-2 mb-4 animate-fade-in" style={{"--delay": "0.4s"} as any}>
             <div className="flex -space-x-2">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full bg-saffron-gradient border-2 border-linear-bg flex items-center justify-center text-white text-sm font-semibold">
+                <div 
+                  key={i} 
+                  className="w-10 h-10 rounded-full bg-saffron-gradient border-2 border-linear-bg flex items-center justify-center text-white text-sm font-semibold hover:scale-110 transition-transform duration-200 hover:z-10 relative cursor-pointer"
+                  style={{"--delay": `${0.4 + i * 0.05}s`} as any}
+                >
                   {String.fromCharCode(65 + i)}
                 </div>
               ))}
             </div>
           </div>
           
-          <p className="text-linear-secondary text-sm mb-8">
+          <p className="text-linear-secondary text-sm mb-8 animate-fade-in" style={{"--delay": "0.5s"} as any}>
             Powering India's best development teams.<br />
             From innovative startups to government enterprises.
           </p>
           
-          <Button variant="outline" className="border-linear text-linear-text hover:bg-linear-card transition-colors">
+          <Button variant="outline" className="border-linear text-linear-text hover:bg-linear-card transition-all duration-200 hover:scale-105 animate-fade-in" style={{"--delay": "0.6s"} as any}>
             Meet our customers
           </Button>
         </div>

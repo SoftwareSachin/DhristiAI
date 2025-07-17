@@ -15,11 +15,13 @@ import {
   University,
   Rocket,
   HandHeart,
-  CheckCircle
+  CheckCircle,
+  ChevronDown
 } from "lucide-react";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -59,12 +61,109 @@ export default function Home() {
             
             {/* Center Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <button 
-                onClick={() => scrollToSection('features')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
-              >
-                Product
-              </button>
+              {/* Product Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
+                  onMouseEnter={() => setIsProductDropdownOpen(true)}
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                >
+                  <span>Product</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                
+                {isProductDropdownOpen && (
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50"
+                    onMouseLeave={() => setIsProductDropdownOpen(false)}
+                  >
+                    <div className="p-6">
+                      <div className="grid grid-cols-2 gap-8">
+                        <div>
+                          <h3 className="text-sm font-medium text-linear-secondary mb-4">Core Features</h3>
+                          <div className="space-y-3">
+                            <div className="group">
+                              <button 
+                                onClick={() => scrollToSection('solutions')}
+                                className="block w-full text-left"
+                              >
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Plan</div>
+                                <div className="text-xs text-linear-secondary">Set the product direction with projects and initiatives</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button 
+                                onClick={() => scrollToSection('features')}
+                                className="block w-full text-left"
+                              >
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Build</div>
+                                <div className="text-xs text-linear-secondary">Make progress with issue tracking and cycle planning</div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-sm font-medium text-linear-secondary mb-4">More</h3>
+                          <div className="space-y-3">
+                            <div className="group">
+                              <button 
+                                onClick={() => scrollToSection('customers')}
+                                className="block w-full text-left"
+                              >
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Citizen requests</div>
+                                <div className="text-xs text-linear-secondary">Manage user feedback</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Integrations</div>
+                                <div className="text-xs text-linear-secondary">Collaborate across tools</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Insights</div>
+                                <div className="text-xs text-linear-secondary">Realtime analytics</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Mobile app</div>
+                                <div className="text-xs text-linear-secondary">DhristiAI in your pocket</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">DhristiAI for Agents</div>
+                                <div className="text-xs text-linear-secondary">Collaborate with AI teammates</div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 pt-4 border-t border-linear">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="text-sm font-medium text-linear-text">New: Sub-initiatives</div>
+                            <div className="text-xs text-linear-secondary">Nest strategic initiatives into a hierarchical structure</div>
+                          </div>
+                          <button className="text-xs text-blue-400 hover:text-blue-300">Changelog</button>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-linear">
+                        <button className="flex items-center space-x-2 text-sm text-linear-text hover:text-saffron-gradient">
+                          <span>Introducing DhristiAI for Agents</span>
+                          <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <button 
                 onClick={() => scrollToSection('solutions')}
                 className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"

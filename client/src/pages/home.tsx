@@ -22,6 +22,7 @@ import {
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -164,12 +165,93 @@ export default function Home() {
                 )}
               </div>
               
-              <button 
-                onClick={() => scrollToSection('solutions')}
-                className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
-              >
-                Resources
-              </button>
+              {/* Resources Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => setIsResourcesDropdownOpen(!isResourcesDropdownOpen)}
+                  onMouseEnter={() => setIsResourcesDropdownOpen(true)}
+                  className="flex items-center space-x-1 text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"
+                >
+                  <span>Resources</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                
+                {isResourcesDropdownOpen && (
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-96 bg-linear-card border border-linear rounded-lg shadow-xl z-50"
+                    onMouseLeave={() => setIsResourcesDropdownOpen(false)}
+                  >
+                    <div className="p-6">
+                      <div className="grid grid-cols-3 gap-6">
+                        <div>
+                          <h3 className="text-sm font-medium text-linear-secondary mb-4">Company</h3>
+                          <div className="space-y-3">
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">About</div>
+                                <div className="text-xs text-linear-secondary">Meet the team</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Careers</div>
+                                <div className="text-xs text-linear-secondary">We're hiring</div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-sm font-medium text-linear-secondary mb-4">Explore</h3>
+                          <div className="space-y-3">
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Developers</div>
+                                <div className="text-xs text-linear-secondary">Build on the DhristiAI API</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Security</div>
+                                <div className="text-xs text-linear-secondary">Safe, secure, and private</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Docs</div>
+                                <div className="text-xs text-linear-secondary">How to use DhristiAI</div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="space-y-3">
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Switch to DhristiAI</div>
+                                <div className="text-xs text-linear-secondary">Migration guide</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Download</div>
+                                <div className="text-xs text-linear-secondary">Get the app</div>
+                              </button>
+                            </div>
+                            <div className="group">
+                              <button className="block w-full text-left">
+                                <div className="text-sm font-medium text-linear-text group-hover:text-saffron-gradient">Quality</div>
+                                <div className="text-xs text-linear-secondary">Conversations on quality</div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
               <button 
                 onClick={() => scrollToSection('pricing')}
                 className="text-sm text-linear-secondary hover:text-linear-text transition-colors font-medium py-2"

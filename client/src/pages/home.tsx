@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import InteractiveDemo from "@/components/ui/interactive-demo";
 import { 
   Building, 
   Heart, 
@@ -58,6 +59,12 @@ export default function Home() {
                 className="text-linear-secondary hover:text-linear-text transition-colors"
               >
                 Solutions
+              </button>
+              <button 
+                onClick={() => scrollToSection('demo')}
+                className="text-linear-secondary hover:text-linear-text transition-colors"
+              >
+                Demo
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
@@ -332,6 +339,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Interactive Demo Section */}
+      <section id="demo">
+        <InteractiveDemo />
       </section>
 
       {/* Customer Proof Section */}

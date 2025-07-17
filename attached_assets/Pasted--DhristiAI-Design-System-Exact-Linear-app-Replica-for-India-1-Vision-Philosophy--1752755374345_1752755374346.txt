@@ -1,0 +1,195 @@
+## DhristiAI Design System — Exact Linear.app Replica for India
+
+### 1. Vision & Philosophy
+
+* **Blazing Speed, Ironclad Precision:** Every interaction completes <50ms, mirroring Linear’s near-instant feedback, while solving India’s core challenges—healthcare, agriculture, education, governance.
+* **Cultural Resonance, Technical Rigor:** An end-to-end system that respects Bharat’s linguistic diversity, scales to millions of users, and follows W3C/DDC best practices.
+
+---
+
+### 2. Design Tokens (JSON Schema)
+
+```json
+{
+  "breakpoints": { "xs": "0px", "sm": "640px", "md": "768px", "lg": "1024px", "xl": "1280px" },
+  "grid": { "columns": 12, "gutter": "24px", "maxWidth": "1440px" },
+  "color": {
+    "background": { "light": "#FFFFFF", "dark": "#0D1117" },
+    "text": { "primary": { "light": "#111827", "dark": "#F5F5F5" }, "secondary": { "light": "#6B7280", "dark": "#9CA3AF" } },
+    "primary": "#5E6AD2", "accentGradient": ["#FF6B35","#F59E0B"],
+    "semantic": { "success": "#22C55E", "warning": "#FACC15", "error": "#EF4444", "info": "#3B82F6" }
+  },
+  "font": {
+    "family": { "base": "Inter, sans-serif", "devanagari": "Noto Sans Devanagari, sans-serif" },
+    "size": { "xs": "0.75rem", "sm": "0.875rem", "md": "1rem", "lg": "1.125rem", "xl": "1.25rem", "2xl": "1.5rem", "3xl": "1.875rem", "4xl": "2.25rem", "5xl": "3rem" },
+    "weight": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 }
+  },
+  "spacing": { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "20px", "6": "24px", "8": "32px", "10": "40px" },
+  "radius": { "sm": "4px", "md": "8px", "lg": "12px", "xl": "16px" }
+}
+```
+
+---
+
+### 3. CSS Variables
+
+```css
+:root {
+  /* Colors */
+  --color-bg: #0D1117;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #9CA3AF;
+  --color-primary: #5E6AD2;
+  --color-accent-start: #FF6B35;
+  --color-accent-end: #F59E0B;
+  /* Font */
+  --font-base: 'Inter', sans-serif;
+  --font-dev: 'Noto Sans Devanagari', sans-serif;
+  /* Spacing */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  /* Radius */
+  --radius-md: 8px;
+}
+[data-theme='light'] {
+  --color-bg: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+}
+```
+
+---
+
+### 4. Layout & Grid
+
+* **Container**: `max-width: 1440px; margin: 0 auto; padding: 16px;`
+* **Grid**: `display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; row-gap: 24px;`
+* **Responsive**: Adjust column-span per breakpoint, e.g., `col-span-12 sm:col-span-8 lg:col-span-6`.
+
+---
+
+### 5. Typography & Text
+
+* **Base**: `font-family: var(--font-base); font-size: var(--font-size-md); line-height: 1.6;`
+* **Headings**:
+
+  * `h1 { font-size: var(--font-size-5xl); font-weight: 700; margin-bottom: 16px; }`
+  * `h2 { font-size: var(--font-size-4xl); font-weight: 600; margin-bottom: 12px; }`
+* **Fluid Scale**: `font-size: clamp(1rem, 1vw + 1rem, 3rem);`
+* **Regional**: `.text-hi { font-family: var(--font-dev); }`
+
+---
+
+### 6. Components
+
+#### 6.1 Buttons
+
+```css
+.button-primary {
+  background: linear-gradient(90deg, var(--color-accent-start), var(--color-accent-end));
+  border: none; border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem; font-weight: 600;
+  transition: transform 150ms ease-out, box-shadow 150ms ease;
+}
+.button-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.button-secondary {
+  background: transparent; border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md); padding: 0.75rem 1.5rem;
+}
+```
+
+#### 6.2 Cards
+
+```css
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: var(--space-4);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+```
+
+#### 6.3 Inputs
+
+```css
+.input {
+  width: 100%; padding: var(--space-3);
+  border: 1px solid var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  transition: border-color 150ms;
+}
+.input:focus { outline: none; border-color: var(--color-primary); }
+```
+
+---
+
+### 7. Motion & Interaction
+
+* **Micro‑interactions:**
+
+  * Buttons: `transform 150ms ease-out`
+  * Underline effects on links: `background-position: 0% 100% to 100% 100% over 200ms`
+* **Page Load:** `body { opacity:0; animation: fadeIn 400ms ease-out forwards; }`
+
+```css
+@keyframes fadeIn { to { opacity:1; } }
+```
+
+* **Reduced Motion:** wrap all animations in `@media (prefers-reduced-motion: no-preference)`.
+
+---
+
+### 8. Hero & Dashboard Blueprint
+
+* **Hero**:
+
+  ```html
+  <section class="grid grid-cols-12 gap-6 items-center">
+    <div class="col-span-12 lg:col-span-6">
+      <h1>DhristiAI: AI for Bharat’s Next-Gen Impact</h1>
+      <p>End-to-end solutions for governance, healthcare & rural development.</p>
+      <button class="button-primary">Get Started</button>
+    </div>
+    <div class="col-span-12 lg:col-span-6">
+      <!-- Lottie/Canvas animation of real-time data cycles on Indian map -->
+      <div id="hero-animation"></div>
+    </div>
+  </section>
+  ```
+
+* **Dashboard**:
+
+  ```html
+  <div class="flex">
+    <nav class="w-64 bg-gray-800 p-4">
+      <!-- Icon + Label list, Hindi toggle -->
+    </nav>
+    <main class="flex-1 p-6">
+      <!-- Topbar, Table, Charts, Heatmap -->
+    </main>
+  </div>
+  ```
+
+---
+
+### 9. Accessibility & Localization
+
+* **ARIA:** Each component includes `role`, `aria-label`/`aria-labelledby`.
+* **Contrast:** Auto-check tool ensures text/pass ratio ≥4.5:1.
+* **i18n:** Externalize all copy; dynamic font switch for scripts.
+
+---
+
+### 10. Handoff & Tooling
+
+* **Figma:** Publish shared library, token sync via Figma Tokens plugin.
+* **Storybook:** Live playground with interactive knobs for every token.
+* **Developer Snippet:**
+
+```js
+import tokens from './tokens.json';
+export const theme = { breakpoints: tokens.breakpoints, colors: tokens.color, fonts: tokens.font, spacing: tokens.spacing };
+```
+
+*This document now outlines exact CSS, HTML snippets, design tokens, and component blueprints, ensuring a pixel‑perfect, Linear‑style system tailored for DhristiAI.*
